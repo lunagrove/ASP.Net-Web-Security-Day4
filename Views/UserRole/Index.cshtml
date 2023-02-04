@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Day3Paypal.ViewModels.UserVM>
+
+@{
+    ViewData["Title"] = "Users";
+}
+
+<h2>Users</h2>
+
+<p>
+    <a class="action-link" asp-action="Create">Create New User Role</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Email
+                </td>
+                <td class="action-link">
+                    @Html.ActionLink(
+                "View Roles"
+                , "Detail"
+                , new { userName = item.Email })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
